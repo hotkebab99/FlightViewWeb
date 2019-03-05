@@ -1,0 +1,8 @@
+<p *ngIf="!vol">Chargement en cours...</p>
+<div *ngIf="vol">
+    <h1>Détails du vol</h1>
+    <p>Nombre de passagers : {{ vol.nombrePassagers }}</p>
+    <a routerLink="/list" class="btn btn-lg btn-primary">
+        <i class="fas fa-chevron-left"></i> Retour
+    </a>
+</div>

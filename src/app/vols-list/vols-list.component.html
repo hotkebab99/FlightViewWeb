@@ -1,0 +1,12 @@
+<h1>Liste des vols 
+    <i class="fas fa-plane-departure"></i>
+</h1>
+<app-vol *ngFor="let vol of vols | async" 
+    [vol]="vol"
+    (volSelected)="selectVol($event)"
+    (volDeleted)="deleteVol($event)"
+></app-vol>
+<!-- Affichage détails -->
+<app-vol-details 
+    *ngIf="selectedVol"
+    [vol]="selectedVol"></app-vol-details>

@@ -1,0 +1,7 @@
+{
+    "/collections/*": {
+        "target": "https://api.mlab.com/api/1/databases/formangular",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
