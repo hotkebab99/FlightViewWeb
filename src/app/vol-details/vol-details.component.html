@@ -1,8 +1,8 @@
-<p *ngIf="!vol">Chargement en cours...</p>
-<div *ngIf="vol">
-    <h1>Détails du vol</h1>
-    <p>Nombre de passagers : {{ vol.nombrePassagers }}</p>
-    <a routerLink="/list" class="btn btn-lg btn-primary">
-        <i class="fas fa-chevron-left"></i> Retour
-    </a>
-</div>
+
+<h1>Détails du vol</h1>
+<a routerLink="general" class="btn btn-lg btn-primary">Général</a>
+<a routerLink="passengers" class="btn btn-lg btn-primary">Passagers</a>
+<router-outlet></router-outlet>
+<a routerLink="/list" class="btn btn-lg btn-primary">
+    <i class="fas fa-chevron-left"></i> Retour
+</a>

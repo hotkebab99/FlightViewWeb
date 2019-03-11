@@ -25,10 +25,6 @@ export class VolsListComponent implements OnInit {
     this.vols = this.volService.getVols();
   }
 
-  selectVol(volSelected: Vol) {
-    this.selectedVol = volSelected;
-  }
-
   deleteVol(volToDelete: Vol) {
     this.volService.deleteVol(volToDelete).subscribe(
       () => this.refreshVols()

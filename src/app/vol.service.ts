@@ -10,7 +10,7 @@ export class VolService {
 
   private vols: Array<Vol>;
   private apiUrl: string = '/collections/flights99';
-  private apiKey: string = 'vKRmk4t-w0JT1sB1sai86LfQgHg4kEeg';
+  private apiKey: string = 'MzRgIMwUoHn9tLc_4UIRrpdCQJLzjmZ4';
 
   constructor(private http: HttpClient) { 
     /*     
