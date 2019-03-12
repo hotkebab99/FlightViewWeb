@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { VolService } from '../vol.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Vol } from '../vol';
 import { Observable } from 'rxjs';
+import { Vol } from 'src/app/vol';
+import { VolService } from 'src/app/vol.service';
 
 @Component({
   selector: 'app-vol-details-general',

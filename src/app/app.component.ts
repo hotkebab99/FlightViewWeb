@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FlightView';
+  auth: boolean;
+
+  constructor(private authService: AuthService) {
+    this.auth = this.authService.getAuth();
+    this.authService.getAuthObs().subscribe(b => this.auth = b);
+  }
+
+  changeAuth() {
+    this.authService.changeAuth();
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Vol } from '../vol';
-import { VolService } from '../vol.service';
 import { ActivatedRoute } from '@angular/router';
+import { Vol } from 'src/app/vol';
+import { VolService } from 'src/app/vol.service';
 
 @Component({
   selector: 'app-vol-details-passagers',
