@@ -24,7 +24,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.json"
             ],
             "styles": [
               "src/styles.scss"
@@ -32,6 +33,13 @@
             "scripts": []
           },
           "configurations": {
+            "si": {
+              "aot": true,
+              "outputPath": "dist/projet-si/",
+              "i18nFile": "src/locale/messages.si.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "si"
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -54,16 +62,22 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "src/ngsw-config.json"
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "FlightView:build"
+            "browserTarget": "FlightView:build",
+            "proxyConfig": "proxy.config.json"
           },
           "configurations": {
+            "si": {
+              "browserTarget": "FlightView:build:si"
+            },
             "production": {
               "browserTarget": "FlightView:build:production"
             }
@@ -88,7 +102,8 @@
             "scripts": [],
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/manifest.json"
             ]
           }
         },

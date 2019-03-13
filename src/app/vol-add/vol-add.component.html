@@ -5,11 +5,13 @@
 <form [formGroup]="volForm" (ngSubmit)="ajouterVol()">
   <div class="form-group">
     <label for="numero">Numéro</label>
-    <input type="text" class="form-control" 
-            [ngClass] = "{ 'is-invalid': !volForm.controls.numero.valid && volForm.controls.numero.dirty }"
-            id="numero" formControlName="numero">
+    <input type="text" class="form-control"
+      [ngClass]="{ 'is-invalid': !volForm.controls.numero.valid && volForm.controls.numero.dirty }" id="numero"
+      formControlName="numero">
     <div *ngIf="!volForm.controls.numero.valid && volForm.controls.numero.dirty">
-        Le numéro de vol est obligatoire.
+      <p *ngIf="volForm.controls.numero.errors.required">Numéro de vol obligatoire.</p>
+      <p *ngIf="volForm.controls.numero.errors.numeroVol">
+        Le numéro de vol doit être de la forme {{ volForm.controls.numero.errors.numeroVol.format }}.</p>
     </div>
   </div>
   <div class="form-group">
@@ -31,10 +33,18 @@
   <div class="form-group">
     <label for="heureDepart">Heure de départ</label>
     <input type="text" class="form-control" id="heureDepart" formControlName="heureDepart">
+    {{ heureDepartCtrl.errors | json }}
+    <div *ngIf="!heureDepartCtrl.valid">
+      <p *ngIf="heureDepartCtrl.errors.pattern">Heure invalide.</p>
+      <p *ngIf="heureDepartCtrl.errors.required">Heure obligatoire.</p>
+    </div>
   </div>
   <div class="form-group">
     <label for="heureArrivee">Heure d'arrivée</label>
     <input type="text" class="form-control" id="heureArrivee" formControlName="heureArrivee">
+    <div *ngIf="!heureArriveeCtrl.valid && heureArriveeCtrl.dirty">
+      <p *ngIf="heureArriveeCtrl.errors.pattern">Heure invalide.</p>
+    </div>
   </div>
   <div class="form-check">
     <input class="form-check-input" type="checkbox" value="" id="urgence" formControlName="urgence">
@@ -44,9 +54,19 @@
     <label for="nombrePassagers">Nombre de passagers</label>
     <input type="number" class="form-control" id="nombrePassagers" formControlName="nombrePassagers">
   </div>
-  <button type="submit" 
-            class="btn btn-success"
-            [disabled]="!volForm.valid">
+  <p>Passagers</p>
+  <ul formArrayName="passagers">
+    <li *ngFor="let passager of passagersCtrl.controls; let i = index" 
+                      formGroupName="{{i}}">
+        <input type="text" formControlName="nom">
+        <input type="text" formControlName="prenom">
+        <button type="button" title="Supprimer" (click)="supprimerPassager(i)" class="btn btn-danger">Supprimer</button>
+    </li>
+  </ul>
+  <button type="button" (click)="ajouterPassager()">Ajouter</button>
+
+
+  <button type="submit" class="btn btn-success" [disabled]="!volForm.valid">
     Ajouter
   </button>
 </form>

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private auth: boolean = false;
+  private auth: boolean = true;
   private authObs: EventEmitter<boolean> = new EventEmitter();
 
   constructor() { }

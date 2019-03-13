@@ -16,6 +16,6 @@ export class AppComponent {
   }
 
   changeAuth() {
-    this.authService.changeAuth();
+    this.authService.changeAuth;
   }
 }

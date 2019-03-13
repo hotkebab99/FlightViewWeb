@@ -1,1 +1,6 @@
 <p>Nombre de passagers : {{ vol?.nombrePassagers }}</p>
+<ul>
+    <li *ngFor="let passager of vol?.passagers">
+        {{ passager.nom }} {{ passager.prenom }}
+    </li>
+</ul>

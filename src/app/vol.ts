@@ -9,4 +9,5 @@ export interface Vol {
     heureArrivee: string;
     urgence: boolean;
     nombrePassagers: number;
+    passagers: Array<{ nom: string, prenom: string }>
 }

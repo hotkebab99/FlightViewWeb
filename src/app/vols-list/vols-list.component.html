@@ -1,9 +1,23 @@
-<h1>Liste des vols 
+<h1 [@translate] i18n>Liste des vols 
     <i class="fas fa-plane-departure"></i>
 </h1>
+
+<input type="checkbox" [(ngModel)]="showDetails" />
+
 <app-vol *ngFor="let vol of vols | async" 
     [vol]="vol"
     (volSelected)="selectVol($event)"
     (volDeleted)="deleteVol($event)"
-></app-vol>
+    [@translate]
+>
+    <p *appShow="showDetails">Passagers : {{ vol.nombrePassagers }}</p>
+</app-vol>
+
+
+<ul>
+    <li *appUlList="let vol of vols | async; field:'urgence'; let gras=highlight"
+            [ngClass]="{'gras': gras}">
+        {{ vol.aeroportDepart }} / {{ vol.aeroportArrivee }}
+    </li>
+</ul>
 

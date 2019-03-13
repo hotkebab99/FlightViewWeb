@@ -16,6 +16,7 @@
           - {{ vol.aeroportArrivee }}
           <b>{{ vol.aeroportArriveeCode }}</b>
         </p>
+        <ng-content></ng-content>
         <button type="button" 
                   (click)="deleteVol()" 
                   class="btn btn-danger"><i class="fas fa-trash-alt"></i> Supprimer</button>

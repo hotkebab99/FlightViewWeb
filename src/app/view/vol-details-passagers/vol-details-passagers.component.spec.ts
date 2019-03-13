@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VolDetailsPassagersComponent } from './vol-details-passagers.component';
-
+/*
 describe('VolDetailsPassagersComponent', () => {
   let component: VolDetailsPassagersComponent;
   let fixture: ComponentFixture<VolDetailsPassagersComponent>;
@@ -22,4 +22,4 @@ describe('VolDetailsPassagersComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+});*/
